@@ -53,9 +53,7 @@ class Index extends React.Component {
           });
           router.replace(route);
         }}
-      >
-        {this.props.children}
-      </TabBar.Item>
+      />
     );
   }
   render() {
@@ -69,6 +67,7 @@ class Index extends React.Component {
         >
           {tabs.map(this.renderTab.bind(this))}
         </TabBar>
+        {this.props.children}
       </div>
     );
   }

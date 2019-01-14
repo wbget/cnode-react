@@ -6,7 +6,12 @@ export default {
       path: '/',
       component: '../layouts/index',
       routes: [
-        { path: '/', exact: true, component: './home' },
+        {
+          path: '/',
+          exact: true,
+          component: './home',
+          routes: [{ path: '/detail', component: './home/detail' }],
+        },
         { path: '/new', component: './new' },
         { path: '/about', component: './about' },
         { path: '/setting', component: './setting' },
@@ -20,7 +25,7 @@ export default {
       {
         antd: true,
         dva: true,
-        dynamicImport: false,
+        dynamicImport: true,
         title: 'cnode-react',
         dll: false,
         routes: {

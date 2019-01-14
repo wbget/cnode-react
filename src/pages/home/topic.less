@@ -1,0 +1,74 @@
+@import '../base.less';
+
+.index {
+  padding: 0 15px;
+  .author {
+    display: flex;
+    line-height: 40px;
+    color: #888;
+    font-size: 14px;
+    justify-content: flex-start;
+    align-items: center;
+    .avatar {
+      height: 20px;
+      margin-right: 8px;
+    }
+  }
+  .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 8px;
+    .topic {
+      font-weight: bold;
+      font-size: 18px;
+    }
+  }
+  .more {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    .tag {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      .mark {
+        color: #ffffff;
+        font-size: 12px;
+        background: @base-color;
+        padding: 4px 4px;
+        margin-right: 5px;
+        border: 1px solid;
+        border-color: @base-color #777 #777 @base-color;
+      }
+      .top {
+        .mark;
+      }
+      .good {
+        .mark;
+      }
+      .tab {
+        .mark;
+        background: white;
+        color: black;
+        border: 1px solid;
+        border-color: #999 #777 #777 #999;
+      }
+    }
+    .detail {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      .count {
+        font-size: 14px;
+      }
+      .icon {
+        height: 30px;
+      }
+    }
+  }
+}

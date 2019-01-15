@@ -41,7 +41,7 @@ class Topic extends React.Component {
               <div className={styles.more}>
                 <div className={styles.tag}>
                   {top ? <div className={styles.top}>置顶</div> : null}
-                  {good ? <div className={styles.good}>好！</div> : null}
+                  {good ? <div className={styles.good}>精品</div> : null}
                   {pTab ? <div className={styles.tab}>{pTab.title}</div> : null}
                 </div>
                 <div className={styles.detail}>

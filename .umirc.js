@@ -25,9 +25,19 @@ export default {
       {
         antd: true,
         dva: true,
-        dynamicImport: true,
+        dynamicImport: false,
         title: 'cnode-react',
         dll: false,
+        pwa: {
+          manifestOptions: {
+            srcPath: 'src/manifest.json',
+          },
+          workboxPluginMode: 'GenerateSW',
+          workboxOptions: {
+            importWorkboxFrom: 'local',
+            swDest: 'sw.js',
+          },
+        },
         routes: {
           exclude: [
             /models\//,

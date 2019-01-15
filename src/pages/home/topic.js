@@ -3,11 +3,25 @@ import React from 'react';
 import Truncate from 'react-truncate';
 import { format } from 'timeago.js';
 import { tabs } from '../../utils/constant';
+import { connect } from 'dva';
+import router from 'umi/router';
 
 import more from '../../assets/more.png';
 import styles from './topic.less';
 
+@connect(({ topic }) => ({
+  current: topic.current,
+}))
 class Topic extends React.Component {
+  onTopic() {
+    const { dispatch, id } = this.props;
+    console.log('on click');
+    dispatch({
+      type: 'topic/topic',
+      payload: { id },
+    });
+    router.push('/detail');
+  }
   render() {
     const {
       author,
@@ -26,7 +40,7 @@ class Topic extends React.Component {
     const { avatar_url, loginname } = author;
     const pTab = tabs.find(t => t.key === tab);
     return (
-      <div className={styles.index}>
+      <div className={styles.index} onClick={this.onTopic.bind(this)}>
         <div className={styles.author}>
           <img className={styles.avatar} src={avatar_url} alt="" />
           {`${loginname} · ${format(create_at, 'zh_CN')}`}

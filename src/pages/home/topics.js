@@ -74,7 +74,7 @@ class Topics extends React.Component {
         // }}
         scrollRenderAheadDistance={500}
         onEndReached={this.onEndReached}
-        onEndReachedThreshold={10}
+        onEndReachedThreshold={30}
       />
     );
   }

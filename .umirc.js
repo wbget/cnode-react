@@ -6,15 +6,17 @@ export default {
       path: '/',
       component: '../layouts/index',
       routes: [
-        {
-          path: '/',
-          exact: true,
-          component: './home',
-          routes: [{ path: '/detail', component: './home/detail' }],
-        },
         { path: '/new', component: './new' },
         { path: '/about', component: './about' },
         { path: '/setting', component: './setting' },
+        {
+          path: '/',
+          component: './home/_layout',
+          routes: [
+            { path: '/detail', component: './home/detail' },
+            { path: '/', exact: true, component: './home' },
+          ],
+        },
       ],
     },
   ],

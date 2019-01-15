@@ -15,6 +15,7 @@ export default {
     ...initList,
     ...initPage,
     limit: 10,
+    current: {},
   },
   reducers: {
     update(state, { payload }) {
@@ -48,6 +49,14 @@ export default {
       yield put({
         type: 'update',
         payload: { [listKey]: newList },
+      });
+    },
+    *topic({ payload }, { call, put }) {
+      const { id } = payload;
+      const { data } = yield call(service.topic, { id });
+      yield put({
+        type: 'update',
+        payload: { current: data.data },
       });
     },
   },

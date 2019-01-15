@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'dva';
 import { TabBar, Icon } from 'antd-mobile';
 import router from 'umi/router';
+import styles from './index.less';
 
 const tabs = [
   {
@@ -58,16 +59,18 @@ class Index extends React.Component {
   }
   render() {
     return (
-      <div style={{ position: 'fixed', height: '100%', width: '100%', top: 0 }}>
-        <TabBar
-          unselectedTintColor="#949494"
-          tintColor="#33A3F4"
-          barTintColor="white"
-          hidden={this.state.hidden}
-        >
-          {tabs.map(this.renderTab.bind(this))}
-        </TabBar>
-        {this.props.children}
+      <div>
+        <div className={styles.tabbar}>
+          <TabBar
+            unselectedTintColor="#949494"
+            tintColor="#33A3F4"
+            barTintColor="white"
+            hidden={this.state.hidden}
+          >
+            {tabs.map(this.renderTab.bind(this))}
+          </TabBar>
+        </div>
+        <div className={styles.content}>{this.props.children}</div>
       </div>
     );
   }

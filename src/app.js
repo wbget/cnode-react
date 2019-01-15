@@ -6,5 +6,5 @@ export const dva = {
     },
   },
   loading: true,
-  // plugins: [require('dva-logger')()],
+  plugins: [require('dva-logger')()],
 };

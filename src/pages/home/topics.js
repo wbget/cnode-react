@@ -4,34 +4,42 @@ import { connect } from 'dva';
 import Topic from './topic';
 
 @connect(({ topic, loading }) => ({ ...topic, loading }))
-class Demo extends React.Component {
+class Topics extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataSource: new ListView.DataSource({ rowHasChanged: (row1, row2) => row1.id !== row2.id }),
+      dataSource: new ListView.DataSource({ rowHasChanged: (row1, row2) => row1 !== row2 }),
     };
   }
+  componentDidMount() {
+    this.props.dispatch({
+      type: 'topic/onPage',
+      payload: { tab: this.props.tab, page: 0 },
+    });
+  }
   onEndReached = event => {
-    if (this.props.loading.effects['topic/topics']) {
+    const { loading, tab } = this.props;
+    if (loading.effects['topic/topics']) {
       return;
     }
+    const page = this.props[tab.key + 'Page'];
     console.log('reach end', event);
     this.props.dispatch({
-      type: 'topic/update',
-      payload: { page: this.props.page + 1 },
-    });
-    this.props.dispatch({
-      type: 'topic/topics',
+      type: 'topic/onPage',
+      payload: { tab: this.props.tab, page: page + 1 },
     });
   };
   componentWillReceiveProps(nextProps) {
-    if (nextProps.list !== this.props.list) {
+    const { tab } = this.props;
+    const listKey = tab.key + 'List';
+    if (nextProps[listKey] !== this.props[listKey]) {
       this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(nextProps.list),
+        dataSource: this.state.dataSource.cloneWithRows(nextProps[listKey]),
       });
     }
   }
   render() {
+    const isLoading = this.props.loading.effects['topic/topics'];
     const separator = (sectionID, rowID) => (
       <div
         key={`${sectionID}-${rowID}`}
@@ -52,7 +60,7 @@ class Demo extends React.Component {
         // dataSource={listSource}
         renderFooter={() => (
           <div style={{ padding: 30, textAlign: 'center' }}>
-            {this.props.loading.effects['topic/topics'] ? '加载中...' : '我是底线'}
+            {isLoading ? '加载中...' : '我是底线'}
           </div>
         )}
         renderRow={row}
@@ -72,4 +80,4 @@ class Demo extends React.Component {
   }
 }
 
-export default Demo;
+export default Topics;

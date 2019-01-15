@@ -12,8 +12,8 @@ class Topic extends React.Component {
       create_at,
       // id,
       // last_reply_at,
-      is_uped,
-      reply_id,
+      //   is_uped,
+      //   reply_id,
       ups,
     } = this.props;
     const { avatar_url, loginname } = author;

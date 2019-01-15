@@ -4,7 +4,6 @@ import { format } from 'timeago.js';
 import { ListView } from 'antd-mobile';
 
 import Nav from '../../components/Nav';
-import { tabs } from '../../utils/constant';
 import Reply from './reply';
 
 import styles from './detail.less';
@@ -33,22 +32,21 @@ class Detail extends React.Component {
     const { current } = this.props;
     const {
       author,
-      author_id,
+      // author_id,
       content,
       create_at,
-      good,
-      id,
-      is_collect,
-      last_reply_at,
+      // good,
+      // id,
+      // is_collect,
+      // last_reply_at,
       // replies,
-      reply_count,
-      tab,
+      // reply_count,
+      // tab,
       title,
-      top,
-      visit_count,
+      // top,
+      // visit_count,
     } = current;
     const { avatar_url, loginname } = author ? author : {};
-    const pTab = tabs.find(t => t.key === tab);
     const separator = (sectionID, rowID) => (
       <div
         key={`${sectionID}-${rowID}`}

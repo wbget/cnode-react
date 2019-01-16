@@ -13,6 +13,7 @@
     "dva": "^2.5.0-beta.2",
     "dva-logger": "^1.0.0",
     "lodash": "^4.17.11",
+    "marked": "^0.6.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-truncate": "^2.4.0",

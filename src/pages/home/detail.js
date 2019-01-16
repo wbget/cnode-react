@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'dva';
 import { format } from 'timeago.js';
 import { ListView } from 'antd-mobile';
+import MarkDownRender from '../../components/MarkDownRender';
 
 import Nav from '../../components/Nav';
 import Reply from './reply';
@@ -71,7 +72,9 @@ class Detail extends React.Component {
           <div className={styles.title}>
             <div className={styles.topic}>{title}</div>
           </div>
-          <div className={styles.detail}>{content}</div>
+          <div className={styles.detail}>
+            <MarkDownRender content={content} />
+          </div>
           <ListView
             dataSource={this.state.dataSource}
             renderFooter={() => (

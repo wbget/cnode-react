@@ -5,6 +5,7 @@ import { format } from 'timeago.js';
 import { tabs } from '../../utils/constant';
 import { connect } from 'dva';
 import router from 'umi/router';
+import MarkDownRender from '../../components/MarkDownRender';
 
 import more from '../../assets/more.png';
 import styles from './topic.less';
@@ -50,7 +51,7 @@ class Topic extends React.Component {
             <div className={styles.topic}>{title}</div>
           </div>
           <Truncate
-            lines={1}
+            lines={3}
             ellipsis={
               <div className={styles.more}>
                 <div className={styles.tag}>
@@ -66,7 +67,7 @@ class Topic extends React.Component {
             }
             trimWhitespace
           >
-            {content}
+            <MarkDownRender content={content} />
           </Truncate>
         </div>
       </div>

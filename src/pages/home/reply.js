@@ -1,7 +1,8 @@
 import React from 'react';
-
-import Truncate from 'react-truncate';
 import { format } from 'timeago.js';
+
+import MarkDownRender from '../../components/MarkDownRender';
+
 import styles from './reply.less';
 
 class Topic extends React.Component {
@@ -23,24 +24,15 @@ class Topic extends React.Component {
           <img className={styles.avatar} src={avatar_url} alt="" />
           {`${loginname}`}
         </div>
-        <div>
-          <Truncate
-            lines={1}
-            ellipsis={
-              <div className={styles.more}>
-                <div className={styles.detail}>
-                  <div className={styles.count}>{`${ups.length} 赞同 · ${format(
-                    create_at,
-                    'zh_CN'
-                  )}`}</div>
-                  {/* <img className={styles.icon} src={more} alt="" /> */}
-                </div>
+        <div className={styles.reply}>
+          <MarkDownRender content={content} />
+          <div className={styles.more}>
+            <div className={styles.detail}>
+              <div className={styles.count}>
+                {`${ups.length} 赞同 · ${format(create_at, 'zh_CN')}`}
               </div>
-            }
-            trimWhitespace
-          >
-            {content}
-          </Truncate>
+            </div>
+          </div>
         </div>
       </div>
     );

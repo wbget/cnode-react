@@ -67,7 +67,7 @@ class Detail extends React.Component {
         <div className={styles.index}>
           <div className={styles.author}>
             <img className={styles.avatar} src={avatar_url} alt="" />
-            {`${loginname}${format(create_at, 'zh_CN')}`}
+            {`${loginname} · ${format(create_at, 'zh_CN')}`}
           </div>
           <div className={styles.title}>
             <div className={styles.topic}>{title}</div>

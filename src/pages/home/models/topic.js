@@ -15,6 +15,7 @@ export default {
     ...initList,
     ...initPage,
     limit: 10,
+    isDetail: false,
     current: {},
   },
   reducers: {
@@ -56,7 +57,7 @@ export default {
       const { data } = yield call(service.topic, { id });
       yield put({
         type: 'update',
-        payload: { current: data.data },
+        payload: { current: data.data, isDetail: true },
       });
     },
   },

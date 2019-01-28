@@ -4,7 +4,6 @@ import Truncate from 'react-truncate';
 import { format } from 'timeago.js';
 import { tabs } from '../../utils/constant';
 import { connect } from 'dva';
-import router from 'umi/router';
 import MarkDownRender from '../../components/MarkDownRender';
 
 import more from '../../assets/more.png';
@@ -21,7 +20,6 @@ class Topic extends React.Component {
       type: 'topic/topic',
       payload: { id },
     });
-    router.push('/detail');
   }
   render() {
     const {

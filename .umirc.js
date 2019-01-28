@@ -13,7 +13,7 @@ export default {
           path: '/',
           component: './home/_layout',
           routes: [
-            { path: '/detail', component: './home/detail' },
+            // { path: '/detail', component: './home/detail' },
             { path: '/', exact: true, component: './home' },
           ],
         },
